@@ -1,0 +1,73 @@
+.navbar-collapse{
+	padding-left:0;
+}
+.navbar-nav>li>a{
+  margin-top: 1px;
+	padding:35px 40px;
+}
+.navbar-default{
+  border-top:#ffc20e; 
+	border-bottom:#ffc20e; 
+  border-color:rgba(0,0,0,0);
+  background: url('../images/navbarbg.png') repeat-x ;
+  z-index: 1;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 25px;
+    webkit-transition:all .7s ease;
+  moz-transition:all .7s ease;
+  os-transition:all .7s ease;
+  transition:all .7s ease;
+
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: #404044;
+  background-color: #ffc20e;
+  background: url('../images/navbarbg-hover.png') repeat-x ;
+
+}
+.navbar-default .navbar-nav>li>a:hover{
+  background: url('../images/navbarbg-hover.png') repeat-x ;
+   
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+.navbar-nav{
+  margin-left: 3px;
+}
+.navbar-default .navbar-toggle{
+  margin: 30px;
+}
+
+/*Slider==============================================*/
+#slider .carousel{
+	width: 60%;
+	height: 350px;
+	margin: 0 auto;
+}
+#slider .carousel-inner>.item>a>img, .carousel-inner>.item>img {
+  line-height: 1;
+  width: 100%;
+  height: 350px;
+  min-width: 100%;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #000000;
+    text-decoration: none;
+    background-color: #FFC20E;
+    border: 1px solid #49472C;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+    color: #ffffff;
+    background-color: #FFC20E;
+    border-color: #23262A;
+}

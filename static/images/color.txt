@@ -1,0 +1,6 @@
+yellow ffc20e
+
+gray 404044
+
+
+white fffff
