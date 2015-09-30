@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <img src="<?php echo base_url("static/uploads/blog/".$top_blogs[$i]['image'])?>"/>
                     <div class="carousel-caption">
                         <p><?php echo strip_tags(html_entity_decode($top_blogs[$i]['body']))?></p>
-                        <a href='<?php echo base_url("blog/".$top_blogs[$i]['id']);?>'></a>
+                        <a href='<?php echo base_url("blog/show/".$top_blogs[$i]['id']);?>'></a>
                     </div>
                 </div>
                 <?php } ?>
@@ -49,7 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <p><span>Duration: </span><?php echo $course['duration']?></p>
 
                 <p><span>Session: </span><?php echo $course['session']?></p>
-                <a class="hover hover-5" href="#"><img src="<?php echo base_url('static/images/apply.png'); ?>"></a>
+                <a class="hover hover-5" href="<?php echo base_url('course/apply')?>">
+                    <img src="<?php echo base_url('static/images/apply.png'); ?>">
+                </a>
             </div>
         </div>
         <div class="col-md-5 col-xs-12 newApp wow slideInRight" data-wow-offset="220">
@@ -59,46 +61,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h2>REQUEST INFORMATION</h2>
                 <span class="note">we'll contact you within 48 hours</span>
             </div>
-            <form>
+            <?php echo form_open(base_url('course/apply')); ?>
                 <div>
-                    <span>First Name*</span>
-                    <input type="text" name="FirstName">
+                    <span>Name:</span>
+                    <input name="Name" type="text"/>
                 </div>
                 <div>
-                    <span>Last Name*</span>
-                    <input type="text" name="LastName">
+                    <span>Date of Birth:</span>
+                    <input name="BirthDate" type="text"/>
                 </div>
                 <div>
-                    <span>Email Address*</span>
-                    <input type="text" name="EmailAddress">
+                    <span>Current City:</span>
+                    <input name="CurrentCity" type="text"/>
                 </div>
                 <div>
-                    <span>Mobile Number*</span>
-                    <input type="text" name="MobileNumber">
+                    <span>Email:</span>
+                    <input name="Email" type="text"/>
                 </div>
                 <div>
-                    <span>Country*</span>
-                    <input type="text" name="Country">
+                    <span>MobilePhone:</span>
+                    <input name="Phone" type="text"/>
                 </div>
                 <div>
-                    <span>City*</span>
-                    <input type="text" name="city">
+                    <span>Field Of Study:</span>
+                    <input name="Study" type="text"/>
                 </div>
                 <div>
                     <span>Prorgram of interset*</span>
 
                     <p>
                         <span id="fa" class="fa fa-caret-down"></span>
-                        <select name="Interst">
-                            <option>Prorgram1</option>
-                            <option>Prorgram2</option>
-                            <option>Prorgram3</option>
+                        <select name="Interest">
+                            <?php foreach($courses as $course){?>
+                                <option value="<?php echo $course['id']?>"><?php echo $course['name']?></option>
+                            <?php } ?>
                         </select>
                     </p>
                 </div>
                 <p class="clearfix"></p>
                 <button type="submit"></button>
-            </form>
+            <?php echo form_close(); ?>
 
         </div>
     </div>

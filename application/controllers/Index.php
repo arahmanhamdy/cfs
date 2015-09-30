@@ -7,6 +7,7 @@ class Index extends CI_Controller{
         parent::__construct();
         $this->load->model('blog_model');
         $this->load->model('course_model');
+        $this->load->helper('form');
     }
 
     public function index()
@@ -17,6 +18,7 @@ class Index extends CI_Controller{
         $home['top_blogs'] = $this->blog_model->get_top();
         $home['bottom_blogs'] = $this->blog_model->get_bottom();
         $home['course'] = $this->course_model->get_home_course();
+        $home['courses'] = $this->course_model->get_all();
 		$this->load->view('index', $home);
         $this->load->view('template/footer');
 	}
