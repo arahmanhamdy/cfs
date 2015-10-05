@@ -11,6 +11,7 @@ class Blog extends CI_Controller
             redirect(base_url("admin/user/login"), 'refresh');
         }
         $this->load->model('blog_model');
+        $this->load->model('user_model');
     }
 
     public function index()
@@ -47,7 +48,7 @@ class Blog extends CI_Controller
     {
         $data['page_title'] = 'Add Blog';
         $data['textarea'] = true; // To include MCEditor javascript files
-
+        $data['users'] = $this->user_model->get_all();
         $this->load->helper('form');
         $this->load->view('admin/template/header', $data);
         $this->load->view('admin/template/navbar', $data);
@@ -75,18 +76,18 @@ class Blog extends CI_Controller
                     'body' => set_value('body'),
                     'is_slider' => set_value('is_slider'),
                     'image' => set_value('image'),
+                    'user_id' => set_value('user_id'),
                 );
                 $this->load->view('admin/blog/add', $form_data);
             } else {
                 $session_data = $this->session->userdata('logged_in');
-                $user_id = $session_data['id'];
                 $img_data = $this->upload->data();
                 $form_data = array(
                     'title' => set_value('title'),
                     'body' => set_value('body'),
                     'is_slider' => set_value('is_slider'),
                     'image' => $img_data['file_name'],
-                    'user_id' => $user_id
+                    'user_id' => set_value('user_id'),
                 );
                 if ($this->blog_model->add($form_data) == TRUE) {
                     redirect(base_url('admin/blog/index'));
@@ -111,7 +112,7 @@ class Blog extends CI_Controller
     {
         $data['page_title'] = 'Edit Blog';
         $data['textarea'] = true; // To include MCEditor javascript files
-
+        $data['users'] = $this->user_model->get_all();
         $this->load->helper('form');
         $this->load->view('admin/template/header', $data);
         $this->load->view('admin/template/navbar', $data);
@@ -140,6 +141,7 @@ class Blog extends CI_Controller
                     'body' => set_value('body'),
                     'is_slider' => set_value('is_slider'),
                     'image' => set_value('image'),
+                    'user_id' => set_value('user_id'),
                 );
                 $this->load->view('admin/blog/add', $form_data);
             } else {
@@ -147,7 +149,7 @@ class Blog extends CI_Controller
                     'title' => set_value('title'),
                     'body' => set_value('body'),
                     'is_slider' => set_value('is_slider'),
-
+                    'user_id' => set_value('user_id'),
                 );
                 if (isset($_FILES['image']) && !empty($_FILES['image']['name'])) {
                     $img_data = $this->upload->data();

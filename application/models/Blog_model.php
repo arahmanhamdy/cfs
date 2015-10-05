@@ -96,6 +96,7 @@ class Blog_model extends CI_Model
     {
         $this->db->select('blog.*, user.username, user.user_image');
         $this->db->from('blog');
+        $this->db->order_by("create_date", "desc");
         $this->db->join('user', 'user.id = blog.user_id');
         $this->db->limit($limit, ($skip - 1) * $limit);
         $query = $this->db->get();
@@ -108,6 +109,7 @@ class Blog_model extends CI_Model
         $where = "YEAR(create_date) = ".$year.' and MONTH(create_date) = '.$date['month'];
         $this->db->select('blog.*, user.username, user.user_image');
         $this->db->from('blog');
+        $this->db->order_by("create_date", "desc");
         $this->db->where($where);
         $this->db->join('user', 'user.id = blog.user_id');
         $this->db->limit($limit, ($skip - 1) * $limit);

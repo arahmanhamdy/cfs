@@ -11,9 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 ?>
                 <h1>Contact Form</h1>
                 <p>Sorry but there was an error sending your message - <strong>we have not received it</strong>.</p>
+                <?php if($page_title == 'Contact Us'){?>
                 <p>You message is preserved below so you do not lose what you typed. Please manually email it to us</p>
                 <?php echo "<textarea name='message'>" . set_value("message") . "</textarea>"; ?>
                 <?php echo form_close();?>
+                <?php } ?>
             </div>
         </div>
     </div>

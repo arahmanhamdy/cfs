@@ -58,7 +58,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     Bottom
                                 </option>
                             </select>
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="user_id">User</label>
+                        <div class="col-md-4">
+                            <select id="user_id" name="user_id" class="form-control">
+                                <?php foreach ($users as $user) { ?>
+                                    <option value="<?php echo $user['id']?>"
+                                        <?php if($id==$user['id']) echo 'selected="1"';?>>
+                                        <?php echo $user['username'] ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
 

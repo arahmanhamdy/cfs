@@ -39,6 +39,7 @@ class Setting extends CI_Controller
                 'vimeo' => set_value('vimeo'),
                 'youtube' => set_value('youtube'),
                 'email' => set_value('email'),
+                'info_email' => set_value('info_email'),
             );
             $this->setting_model->edit($form_data);
             redirect(base_url('admin/setting/index'));

@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h2>REQUEST INFORMATION</h2>
                 <span class="note">we'll contact you within 48 hours</span>
             </div>
-            <?php echo form_open(base_url('course/apply')); ?>
+            <?php echo form_open(base_url('index/send_mail')); ?>
                 <div>
                     <span>Name:</span>
                     <input name="Name" type="text"/>

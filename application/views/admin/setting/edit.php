@@ -66,6 +66,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                    value="<?php echo $email ?>">
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="info_email">Email</label>
+                        <div class="col-md-8">
+                            <input type="text" name="info_email" placeholder="email Link" class="form-control input-large"
+                                   value="<?php echo $info_email ?>">
+                        </div>
+                    </div>
+
                     </br>
 
                     <div class="col-md-4 col-md-offset-4">

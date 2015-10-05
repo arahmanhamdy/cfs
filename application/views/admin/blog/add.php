@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-group">
                         <?php echo form_error('title'); ?>
                         <label class="col-md-4 control-label" for="title">Title <span class="required">*</span></label>
+
                         <div class="col-md-4">
                             <input type="text" name="title" placeholder="blog title" class="form-control input-large"
                                    value="<?php echo set_value('title'); ?>">
@@ -30,6 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-group">
                         <?php echo strip_tags(form_error('image')); ?>
                         <label class="col-md-4 control-label" for="image">Image <span class="required">*</span></label>
+
                         <div class="col-md-4">
                             <input type="file" name="image" placeholder="blog image" class="form-control input-file"
                                    value="<?php echo set_value('image'); ?>">
@@ -39,23 +41,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="is_slider">Show in Slider</label>
+
                         <div class="col-md-4">
                             <select id="is_slider" name="is_slider" class="form-control">
-                                <option value="false" <?php if(set_value('is_slider')=="false") echo 'selected' ?>>None</option>
-                                <option value="top" <?php if(set_value('is_slider')=="top") echo 'selected' ?>>Top</option>
-                                <option value="bottom" <?php if(set_value('is_slider')=="bottom") echo 'selected' ?>>Bottom</option>
+                                <option value="false" <?php if (set_value('is_slider') == "false") echo 'selected' ?>>
+                                    None
+                                </option>
+                                <option value="top" <?php if (set_value('is_slider') == "top") echo 'selected' ?>>Top
+                                </option>
+                                <option value="bottom" <?php if (set_value('is_slider') == "bottom") echo 'selected' ?>>
+                                    Bottom
+                                </option>
                             </select>
 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="user_id">User</label>
+                        <div class="col-md-4">
+                            <select id="user_id" name="user_id" class="form-control">
+                                <?php foreach ($users as $user) { ?>
+                                    <option value="<?php echo $user['id']?>"
+                                        <?php if(set_value('user_id')==$user['id']) echo 'selected="1"';?>>
+                                        <?php echo $user['username'] ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
 
                     <?php echo form_textarea(array('name' => 'body', 'rows' => '15', 'cols' => '80', 'value' => htmlspecialchars_decode(set_value('body')))) ?>
                     </br>
 
-                        <div class="col-md-4 col-md-offset-4">
+                    <div class="col-md-4 col-md-offset-4">
                         <button class="btn btn-success btn-xlarge" style="float: left;" type="submit">Submit</button>
                         <button class="btn btn-danger btn-xlarge" style="float: right;" type="reset">Reset</button>
-                        </div>
+                    </div>
                     <?php echo form_close(); ?>
 
                 </div>
