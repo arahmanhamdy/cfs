@@ -31,7 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <span><?php echo $blog['username'] ?></span>
                                 </div>
                                 <div class="subject ar">
-                                    <h2><?php echo $blog['title'] ?></h2>
+                                    <a href="<?php echo base_url('blog/show/' . $blog['id']) ?>">
+
+                                    </a><h2><?php echo $blog['title'] ?></h2>
                                     <span><?php echo $blog['create_date'] ?></span>
 
                                     <p>

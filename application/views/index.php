@@ -119,7 +119,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <img src="<?php echo base_url("static/uploads/blog/".$bottom_blogs[$i]['image'])?>"/>
 
                                 <div class="carousel-caption">
-                                    <h2><?php echo $bottom_blogs[$i]['title']?></h2>
+                                    <h2><a href="<?php echo base_url("blog/show/".$bottom_blogs[$i]['id']);?>">
+                                            <?php echo $bottom_blogs[$i]['title']?></a></h2>
                                     <span><?php echo $bottom_blogs[$i]['create_date']?></span>
 
                                     <p><?php echo strip_tags(html_entity_decode($bottom_blogs[$i]['body']))?></p>
